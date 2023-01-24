@@ -1,8 +1,196 @@
-<svelte:head>
-	<title>Home Page</title>
-	<meta name="description" content="Svelte homepage" />
-</svelte:head>
+<!-- src/lib/Canvas.svelte -->
+<script lang="ts">
+	import * as THREE from 'three';
+	import { onMount } from 'svelte';
+	import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+	import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
+	import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 
-<h1 class="text-blue-500 text-4xl">Welcome to SvelteKit</h1>
-<br />
-<p>Homepage</p>
+	let canvasElement: HTMLCanvasElement;
+
+	onMount(() => {
+		// Scene
+		const scene = new THREE.Scene();
+
+		/**
+		 * Textures
+		 */
+		const textureLoader = new THREE.TextureLoader();
+		const matcapTeture = textureLoader.load('/three/textures/matcaps/8.png');
+
+		const textGroup = new THREE.Group();
+		scene.add(textGroup);
+
+		const donutGroup = new THREE.Group();
+		scene.add(donutGroup);
+
+		const cubeGroup = new THREE.Group();
+		scene.add(cubeGroup);
+
+		/**
+		 * Fonts
+		 */
+		const fontLoader = new FontLoader();
+		fontLoader.load('/three/fonts/helvetiker_regular.typeface.json', (font) => {
+			// Global Material
+			const material = new THREE.MeshMatcapMaterial({ matcap: matcapTeture });
+
+			// Jackson Sophat
+			const jacksonTextGeometry = new TextGeometry('Jackson Sophat', {
+				font: font,
+				size: 0.5,
+				height: 0.2,
+				curveSegments: 12,
+				bevelEnabled: true,
+				bevelThickness: 0.03,
+				bevelSize: 0.02,
+				bevelOffset: 0,
+				bevelSegments: 5
+			});
+
+			jacksonTextGeometry.center();
+			const jacksonText = new THREE.Mesh(jacksonTextGeometry, material);
+			jacksonText.position.y = 1;
+			textGroup.add(jacksonText);
+			// scene.add(jacksonText)
+
+			// Web Developer
+			const webDeveloperTextGeometry = new TextGeometry('Web Developer', {
+				font: font,
+				size: 0.5,
+				height: 0.2,
+				curveSegments: 12,
+				bevelEnabled: true,
+				bevelThickness: 0.03,
+				bevelSize: 0.02,
+				bevelOffset: 0,
+				bevelSegments: 5
+			});
+
+			webDeveloperTextGeometry.center();
+			const webDeveloper = new THREE.Mesh(webDeveloperTextGeometry, material);
+			webDeveloper.position.y = 0;
+			scene.add(webDeveloper);
+
+			// open for work
+			const openForWorkTextGeometry = new TextGeometry('#OpenForWork', {
+				font: font,
+				size: 0.5,
+				height: 0.2,
+				curveSegments: 12,
+				bevelEnabled: true,
+				bevelThickness: 0.03,
+				bevelSize: 0.02,
+				bevelOffset: 0,
+				bevelSegments: 5
+			});
+
+			openForWorkTextGeometry.center();
+			const openForWork = new THREE.Mesh(openForWorkTextGeometry, material);
+			openForWork.position.y = -1;
+			scene.add(openForWork);
+
+			const donutGeometry = new THREE.TorusGeometry(0.3, 0.2, 20, 45);
+
+			for (let i = 0; i <= 100; i++) {
+				const donut = new THREE.Mesh(donutGeometry, material);
+				donut.position.x = (Math.random() - 0.5) * 30;
+				donut.position.y = (Math.random() - 0.5) * 30;
+				donut.position.z = (Math.random() - 0.5) * 30;
+
+				donut.rotation.x = Math.random() * Math.PI;
+				donut.rotation.y = Math.random() * Math.PI;
+
+				const donutScale = Math.random();
+				donut.scale.set(donutScale, donutScale, donutScale);
+				donutGroup.add(donut);
+			}
+
+			const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
+			for (let i = 0; i <= 100; i++) {
+				const cube = new THREE.Mesh(cubeGeometry, material);
+				cube.position.x = (Math.random() - 0.5) * 30;
+				cube.position.y = (Math.random() - 0.5) * 30;
+				cube.position.z = (Math.random() - 0.5) * 30;
+
+				cube.rotation.x = Math.random() * Math.PI;
+				cube.rotation.y = Math.random() * Math.PI;
+
+				const cubeScale = Math.random();
+				cube.scale.set(cubeScale, cubeScale, cubeScale);
+				cubeGroup.add(cube);
+			}
+		});
+
+		/**
+		 * Sizes
+		 */
+		const sizes = {
+			width: window.innerWidth,
+			height: window.innerHeight
+		};
+
+		window.addEventListener('resize', () => {
+			// Update sizes
+			sizes.width = window.innerWidth;
+			sizes.height = window.innerHeight;
+
+			// Update camera
+			camera.aspect = sizes.width / sizes.height;
+			camera.updateProjectionMatrix();
+
+			// Update renderer
+			renderer.setSize(sizes.width, sizes.height);
+			renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+		});
+
+		/**
+		 * Camera
+		 */
+		// Base camera
+		const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
+		camera.position.x = 1;
+		camera.position.y = 1;
+		camera.position.z = 8;
+		scene.add(camera);
+
+		// Controls
+		const controls = new OrbitControls(camera, canvasElement);
+		controls.enableDamping = true;
+
+		/**
+		 * Renderer
+		 */
+		const renderer = new THREE.WebGLRenderer({
+			canvas: canvasElement
+		});
+		renderer.setSize(sizes.width, sizes.height);
+		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+		/**
+		 * Animate
+		 */
+		const clock = new THREE.Clock();
+
+		const tick = () => {
+			const elapsedTime = clock.getElapsedTime();
+
+			//Update Object
+			donutGroup.rotation.y = elapsedTime * 0.05;
+			cubeGroup.rotation.y = -elapsedTime * 0.05;
+
+			// Update controls
+			controls.update();
+
+			// Render
+			renderer.render(scene, camera);
+
+			// Call tick again on the next frame
+			window.requestAnimationFrame(tick);
+		};
+
+		tick();
+	});
+</script>
+
+<canvas bind:this={canvasElement} class="fixed top-0 left-0" />
