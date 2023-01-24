@@ -36,6 +36,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"three": "^0.148.0"
+		"iconify-icon": "^1.0.2",
+		"three": "^0.148.0",
+		"vercel": "^28.13.1"
 	}
 }

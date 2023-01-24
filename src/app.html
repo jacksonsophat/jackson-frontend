@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width" />
-		%sveltekit.head%
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">%sveltekit.body%</div>
-	</body>
+
+<head>
+	<meta charset="utf-8" />
+	<!-- <link rel="icon" href="%sveltekit.assets%/favicon.png" /> -->
+	<link rel="icon" href="/images/jacksonsophat-favicon.png" />
+	<meta name="viewport" content="width=device-width" />
+
+
+  <!-- SEO -->
+  <meta name="description"
+    content="Jackson Sophat is a web developer who specializes in building (and occasionally designing) interactive web experiences.">
+
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="http://jacksonsophat.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jackson Sophat | Welcome">
+  <meta property="og:description"
+    content="Jackson Sophat is a web developer who specializes in building (and occasionally designing) interactive web experiences.">
+  <meta property="og:image" content="/images/og-img-2.png">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="http://jacksonsophat.com/">
+  <meta property="twitter:url" content="http://jacksonsophat.com/">
+  <meta name="twitter:title" content="Jackson Sophat | Welcome">
+  <meta name="twitter:description"
+    content="Jackson Sophat is a web developer who specializes in building (and occasionally designing) interactive web experiences.">
+  <meta name="twitter:image" content="/images/og-img-2.png">
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161533116-4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-161533116-4');
+  </script>
+
+
+
+	%sveltekit.head%
+</head>
+
+<body data-sveltekit-preload-data="hover">
+	<div style="display: contents">%sveltekit.body%</div>
+</body>
+
 </html>

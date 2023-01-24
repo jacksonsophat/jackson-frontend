@@ -193,4 +193,21 @@
 	});
 </script>
 
-<canvas bind:this={canvasElement} class="fixed top-0 left-0" />
+<div class="relative">
+	<canvas bind:this={canvasElement} class="fixed top-0 left-0" />
+	<!-- <a
+		href="/projects/local-news"
+		class="fixed bottom-4 left-4 bg-white/50 px-2 py-1 text-sm rounded text-white no-underline"
+		>Local News</a
+	> -->
+	<div
+		class="fixed bottom-4 right-4 bg-white/50 px-2 py-2 text-sm rounded flex items-center justify-center text-white"
+	>
+		<a href="/" class=" mr-2 flex items-center" target="_blank" rel="noreferrer">
+			<iconify-icon icon="mdi:linkedin" />
+		</a>
+		<a href="mailto:vichetsophat@gmail.com" class="flex items-center">
+			<iconify-icon icon="material-symbols:mark-email-unread" />
+		</a>
+	</div>
+</div>
