@@ -193,13 +193,22 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Jackson Sophat | Open For Work</title>
+	<meta
+		name="description"
+		content="I am opening to be hired. Please hit me up if you are looking for a web developer based in Houston, Texas."
+	/>
+	<!-- <title>Hello</title> -->
+</svelte:head>
+
 <div class="relative">
 	<canvas bind:this={canvasElement} class="fixed top-0 left-0" />
-	<!-- <a
+	<a
 		href="/projects/local-news"
 		class="fixed bottom-4 left-4 bg-white/50 px-2 py-1 text-sm rounded text-white no-underline"
 		>Local News</a
-	> -->
+	>
 	<div
 		class="fixed bottom-4 right-4 bg-white/50 px-2 py-2 text-sm rounded flex items-center justify-center text-white"
 	>

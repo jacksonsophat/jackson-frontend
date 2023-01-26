@@ -35,8 +35,8 @@
 	<meta name="twitter:image" content="%sveltekit.assets%/images/og-img-2.png" />
 </svelte:head>
 
-<!-- <Header /> -->
+<Header />
 <main>
 	<slot />
 </main>
-<!-- <Footer /> -->
+<Footer />
