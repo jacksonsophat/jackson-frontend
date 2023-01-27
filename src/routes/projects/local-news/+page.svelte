@@ -3,7 +3,30 @@
 
 	export let data;
 	const { news } = data;
-	console.log(news);
+
+	// let test = news[0].published;
+	// console.log(test);
+
+	let arr = news.map((obj) => {
+		return { ...obj, published: new Date(obj.published) };
+	});
+
+	console.log({ arr });
+
+	const sortedDataByDate = arr.sort(
+		(objA, objB) => Number(objB.published) - Number(objA.published)
+	);
+	console.log({ sortedDataByDate });
+
+	// const activities = [
+	// 	{ title: 'Hiking', date: new Date('2019-06-28') },
+	// 	{ title: 'Shopping', date: new Date('2019-06-10') },
+	// 	{ title: 'Trekking', date: new Date('2019-06-22') }
+	// ];
+
+	// const sortedActivities = activities.sort((a, b) => b.date - a.date);
+
+	// console.log(sortedActivities);
 
 	// let data = [];
 
@@ -56,7 +79,7 @@
 	</div>
 
 	<div class="container">
-		{#each news as item}
+		{#each sortedDataByDate as item}
 			<a href={item.link} target="_blank" rel="noreferrer">
 				<div class="mb-8 border rounded bg-gray-100 md:flex">
 					<img
@@ -70,7 +93,7 @@
 					<div class="p-2 md:w-3/4 md:pt-4 md:flex md:flex-col md:justify-between">
 						<p class="font-medium mb-2">{item.title}</p>
 						<p class="text-sm">{item.summary}</p>
-						<div class="flex justify-between text-xs py-2">
+						<div class="border-t text-xs mt-2 pt-2 md:flex md:justify-between">
 							<p>{item.station}</p>
 							<p>{item.published}</p>
 						</div>

@@ -19,20 +19,16 @@
 
 
 export const load = async ({ fetch }) => {
-    const fetchProducts = async () => {
-        const productRes = await fetch('https://dummyjson.com/products?limit=10')
-        const productData = await productRes.json()
-        return productData.products
-    }
+
 
     const fetchNews = async () => {
-        const res = await fetch('http://127.0.0.1:8000/local-news/')
+        // const res = await fetch('http://127.0.0.1:8000/local-news/')
+        const res = await fetch('http://150.136.7.63/local-news/')
         const data = await res.json()
         return data
     }
 
     return {
-        products: fetchProducts(),
         news: fetchNews()
     }
 }

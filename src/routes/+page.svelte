@@ -199,7 +199,6 @@
 		name="description"
 		content="I am opening to be hired. Please hit me up if you are looking for a web developer based in Houston, Texas."
 	/>
-	<!-- <title>Hello</title> -->
 </svelte:head>
 
 <div class="relative">
