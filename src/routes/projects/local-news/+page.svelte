@@ -8,12 +8,12 @@
 		return { ...obj, published: new Date(obj.published) };
 	});
 
-	console.log({ arr });
+	// console.log({ arr });
 
 	const sortedDataByDate = arr.sort(
 		(objA, objB) => Number(objB.published) - Number(objA.published)
 	);
-	console.log({ sortedDataByDate });
+	// console.log({ sortedDataByDate });
 </script>
 
 <!-- <script>
@@ -40,8 +40,9 @@
 		{#each sortedDataByDate as item}
 			<a href={item.link} target="_blank" rel="noreferrer">
 				<div class="mb-8 border rounded bg-gray-100 md:flex">
-					<figure class="md:w-1/4 object-cover">
+					<figure class="md:w-1/4 ">
 						<img
+							class="h-100 w-100 object-cover"
 							use:lazyLoad={item.image ? item.image : '/images/image-na.png'}
 							alt={item.title}
 						/>

@@ -1,10 +1,12 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 	import '../app.css';
 	import 'iconify-icon';
 	import Header from './components/Header.svelte';
 	import Footer from './components/Footer.svelte';
-	// import Transition from './components/pageTransition.svelte';
+	import Transition from './components/pageTransition.svelte';
+
+	// console.log($page.url.pathname);
 </script>
 
 <!-- <MetaTags /> -->
@@ -38,7 +40,10 @@
 </svelte:head>
 
 <Header />
+
 <main>
+	<!-- <Transition url={$page.url}>
+	</Transition> -->
 	<slot />
 </main>
 <Footer />

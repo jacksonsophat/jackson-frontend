@@ -202,16 +202,17 @@
 	/>
 </svelte:head>
 
-<main class="relative" in:fade>
-	<canvas bind:this={canvasElement} class="fixed top-0 left-0" />
+<div class="relative">
+	<div class="fixed w-screen h-screen overflow-hidden top-0 left-0 z-0 bg-black" />
+	<canvas bind:this={canvasElement} class="fixed top-0 left-0 z-10" />
 	<a
 		data-sveltekit-preload-data="hover"
 		href="/projects/local-news"
-		class="fixed bottom-4 left-4 bg-white/50 px-2 py-1 text-sm rounded text-white no-underline"
+		class="fixed bottom-4 left-4 bg-white/50 px-2 py-1 text-sm rounded text-white no-underline z-20"
 		>Local News</a
 	>
 	<div
-		class="fixed bottom-4 right-4 bg-white/50 px-2 py-2 text-sm rounded flex items-center justify-center text-white"
+		class="fixed bottom-4 right-4 bg-white/50 px-2 py-2 text-sm rounded flex items-center justify-center text-white z-20"
 	>
 		<a href="/" class=" mr-2 flex items-center" target="_blank" rel="noreferrer">
 			<iconify-icon icon="mdi:linkedin" />
@@ -220,4 +221,4 @@
 			<iconify-icon icon="material-symbols:mark-email-unread" />
 		</a>
 	</div>
-</main>
+</div>
