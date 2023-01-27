@@ -1,8 +1,10 @@
 <script>
+	import { page } from '$app/stores';
 	import '../app.css';
 	import 'iconify-icon';
 	import Header from './components/Header.svelte';
 	import Footer from './components/Footer.svelte';
+	// import Transition from './components/pageTransition.svelte';
 </script>
 
 <!-- <MetaTags /> -->

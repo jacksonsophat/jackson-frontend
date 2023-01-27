@@ -1,0 +1,4 @@
+
+Got this snippet from package.json
+		// "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		// "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",

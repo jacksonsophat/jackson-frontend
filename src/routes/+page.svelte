@@ -5,6 +5,7 @@
 	import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 	import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 	import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
+	import { fade } from 'svelte/transition';
 
 	let canvasElement: HTMLCanvasElement;
 
@@ -201,9 +202,10 @@
 	/>
 </svelte:head>
 
-<div class="relative">
+<main class="relative" in:fade>
 	<canvas bind:this={canvasElement} class="fixed top-0 left-0" />
 	<a
+		data-sveltekit-preload-data="hover"
 		href="/projects/local-news"
 		class="fixed bottom-4 left-4 bg-white/50 px-2 py-1 text-sm rounded text-white no-underline"
 		>Local News</a
@@ -218,4 +220,4 @@
 			<iconify-icon icon="material-symbols:mark-email-unread" />
 		</a>
 	</div>
-</div>
+</main>
