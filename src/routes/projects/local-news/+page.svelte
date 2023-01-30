@@ -54,7 +54,8 @@
 						<p class="font-medium mb-2">{item.title}</p>
 						<p class="text-sm">{item.summary}</p>
 						<div class="border-t text-xs mt-2 pt-2 md:flex md:justify-between">
-							<p>{item.station}</p>
+							<img src={item.station} alt={item.station} class="h-4" />
+							<!-- <p>{item.station}</p> -->
 							<p>{item.published}</p>
 						</div>
 					</div>
