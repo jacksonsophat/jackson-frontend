@@ -22,6 +22,10 @@
 		{
 			value: 'austin',
 			label: 'Austin'
+		},
+		{
+			value: 'dallas',
+			label: 'Dallas'
 		}
 	];
 

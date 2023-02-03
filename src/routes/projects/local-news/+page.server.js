@@ -4,13 +4,13 @@ export const load = async ({ fetch, cookies }) => {
     if (cookies.get('select_city')) {
         select_city = cookies.get('select_city')
     } else {
-        select_city = 'austin'
+        select_city = 'houston'
     }
 
 
     const fetchNews = async () => {
-        // const res = await fetch(`http://127.0.0.1:8000/local-news/?select_city=${select_city}`)
-        const res = await fetch(`http://150.136.7.63/local-news/?select_city=${select_city}`)
+        const res = await fetch(`http://127.0.0.1:8000/local-news/?select_city=${select_city}`)
+        // const res = await fetch(`http://150.136.7.63/local-news/?select_city=${select_city}`)
         // const res = await fetch('http://150.136.7.63/local-news/')
         const data = await res.json()
         return data
