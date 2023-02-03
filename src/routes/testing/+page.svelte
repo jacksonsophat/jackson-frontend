@@ -1,19 +1,56 @@
 <script lang="ts">
-	let testImg: string = 'https://www.jacksonsophat.com/images/og-img-2.png';
+	export let data: any;
+	const { news } = data;
 
-	console.log(testImg);
+	console.log(data.news);
+	console.log('select_city: ', data.select_city);
+
+	let cityOptions = [
+		{
+			value: 'houston',
+			label: 'Houston'
+		},
+		{
+			value: 'austin',
+			label: 'Austin'
+		}
+	];
+
+	let selectCityIndex: number;
+
+	for (let i = 0; i < cityOptions.length; i++) {
+		if (cityOptions[i].value == data.select_city) {
+			selectCityIndex = i;
+			console.log(data.select_city, i);
+		}
+	}
+
+	let selected: any = cityOptions[selectCityIndex];
+
+	function handleSubmit() {
+		document.cookie = `select_city=${selected.value}`;
+		console.log(selected.value, selected.label);
+		console.log(news);
+	}
+
+	// data-sveltekit-reload
 </script>
 
-<h1>Testing</h1>
+<div>
+	<h1 class="text-center text-3xl font-semibold">Testing Page</h1>
+	<hr class="my-6" />
 
-<!-- <img 
-srcset=``
-src={testImg} alt="" /> -->
+	<form method="GET" on:change={handleSubmit}>
+		<select bind:value={selected}>
+			{#each cityOptions as option}
+				<option value={option}>
+					{option.label}
+				</option>
+			{/each}
+		</select>
+	</form>
 
-<img
-	srcset="https://www.jacksonsophat.com/images/og-img-2.png 480w, https://www.jacksonsophat.com/images/og-img-2.png 800w"
-	sizes="(max-width: 600px) 480px,
-         800px"
-	src="https://www.jacksonsophat.com/images/og-img-2.png"
-	alt="Elva dressed as a fairy"
-/>
+	<div class="mt-8 text-center text-red-600">
+		<p class="uppercase">City: {data.select_city}</p>
+	</div>
+</div>
