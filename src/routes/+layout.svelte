@@ -25,7 +25,7 @@
 		property="og:description"
 		content="Jackson Sophat is a web developer who specializes in building (and occasionally designing) interactive web experiences."
 	/>
-	<meta property="og:image" content="%sveltekit.assets%/images/og-img-2.png" />
+	<meta property="og:image" content="/images/og-img-2.png" />
 
 	<!-- Twitter Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image" />
@@ -36,7 +36,8 @@
 		name="twitter:description"
 		content="Jackson Sophat is a web developer who specializes in building (and occasionally designing) interactive web experiences."
 	/>
-	<meta name="twitter:image" content="%sveltekit.assets%/images/og-img-2.png" />
+	<!-- <meta name="twitter:image" content="%sveltekit.assets%/images/og-img-2.png" /> -->
+	<meta name="twitter:image" content="/images/og-img-2.png" />
 </svelte:head>
 
 <Header />

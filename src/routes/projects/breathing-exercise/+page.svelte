@@ -87,11 +87,11 @@
 				</h1>
 			</div>
 
-			<div class="animation-border flex items-center w-full justify-center pt-28 relative">
+			<div class="animation-border flex items-center w-full justify-center pt-52 md:pt-60 relative">
 				<svg
 					id="CircleBorder"
-					width="500"
-					height="500"
+					width="250"
+					height="250"
 					viewBox="0 0 500 500"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
@@ -102,8 +102,8 @@
 				<svg
 					class="absolute"
 					id="AnimationCircle"
-					width="100"
-					height="100"
+					width="50"
+					height="50"
 					viewBox="0 0 100 100"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
