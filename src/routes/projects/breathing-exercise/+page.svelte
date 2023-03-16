@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
-	let startingCount = 3;
+	let startingCount = 5;
 	let count = 4;
 	let startingText = true;
 	let howTo = '';
