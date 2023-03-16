@@ -10,7 +10,7 @@ export const load = async ({ fetch, cookies }) => {
 
     const fetchNews = async () => {
         // const res = await fetch(`http://127.0.0.1:8000/projects/local-news/?select_city=${select_city}`)
-        const res = await fetch(`http://150.136.7.63/projects/local-news/?select_city=${select_city}`)
+        const res = await fetch(`http://150.136.7.63/local-news/?select_city=${select_city}`)
         const data = await res.json()
         return data
     }
