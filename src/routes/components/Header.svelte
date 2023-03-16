@@ -1,6 +1,9 @@
 <svelte:head>
 	<title>Jackson Sophat | Web Developer | Houston Texas</title>
-	<meta name="description" content="My tech stack: Svelte, Python, Django, Three Js, WebGL, JavaScript, HTML, CSS, SEO, Web Design">
+	<meta
+		name="description"
+		content="My tech stack: Svelte, Python, Django, Three Js, WebGL, JavaScript, HTML, CSS, SEO, Web Design"
+	/>
 	<!-- <title>Hello</title> -->
 </svelte:head>
 
@@ -11,7 +14,7 @@
 		</a>
 		<nav class="font-semibold">
 			<a href="/projects/local-news">Local News</a>
-			<!-- <a href="/about">About</a> -->
+			<a href="/projects/breathing-exercise">Breathing</a>
 		</nav>
 	</div>
 </header>
